@@ -17,6 +17,11 @@ jobs:
         with:
           python-version: "3.8"
 
+      - name: venv environment
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+
       - name: Run tests
         run: |
           python -m unittest test/test_main
