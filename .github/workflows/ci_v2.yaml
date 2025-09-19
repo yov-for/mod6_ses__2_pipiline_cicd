@@ -22,8 +22,17 @@ jobs:
           python -m venv venv
           source venv/bin/activate
 
-      - name: Run tests
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run flake8
         run: |
           source venv/bin/activate
-          python -m unittest test/test_main.py
+          flake8 my_app main_v1.py
 
+      - name: Run Mypy
+        run: |
+          source venv/bin/activate
+          mypy my_app --config-file mypy.ini
