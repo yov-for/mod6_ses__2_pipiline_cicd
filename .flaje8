@@ -1,5 +1,5 @@
 [flake8]
 max-line-length = 100
-excluse = .git,__pycache__,.venv
-ignore = E, W
+excluse = .venv
+ignore = E,W
 select = E302, W293
